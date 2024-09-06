@@ -11,7 +11,7 @@ import SwiftUI
 struct SwiftUI_CryptoCoinApp: App {
     var body: some Scene {
         WindowGroup {
-            TrendingView()
+            ContentView()
         }
     }
 }
