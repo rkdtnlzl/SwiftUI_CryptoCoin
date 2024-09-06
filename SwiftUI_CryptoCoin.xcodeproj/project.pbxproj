@@ -12,6 +12,14 @@
 		012C42A22C89D88100C78861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012C42A12C89D88100C78861 /* Assets.xcassets */; };
 		012C42A52C89D88100C78861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012C42A42C89D88100C78861 /* Preview Assets.xcassets */; };
 		012C42AC2C89D8CD00C78861 /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42AB2C89D8CD00C78861 /* TrendingView.swift */; };
+		012C42AF2C89E44500C78861 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 012C42AE2C89E44500C78861 /* Alamofire */; };
+		012C42B32C89E49600C78861 /* TrendingCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42B22C89E49600C78861 /* TrendingCoin.swift */; };
+		012C42B72C89E91E00C78861 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 012C42B62C89E91E00C78861 /* .gitignore */; };
+		012C42B92C89E96000C78861 /* APIUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42B82C89E96000C78861 /* APIUrl.swift */; };
+		012C42BC2C89E9E900C78861 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42BB2C89E9E900C78861 /* Array+.swift */; };
+		012C42BF2C8AD94E00C78861 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 012C42BE2C8AD94E00C78861 /* Kingfisher */; };
+		012C42C12C8ADF4E00C78861 /* SearchingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42C02C8ADF4E00C78861 /* SearchingView.swift */; };
+		012C42C52C8AEB7B00C78861 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C42C42C8AEB7B00C78861 /* View+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +29,12 @@
 		012C42A12C89D88100C78861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		012C42A42C89D88100C78861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		012C42AB2C89D8CD00C78861 /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
+		012C42B22C89E49600C78861 /* TrendingCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCoin.swift; sourceTree = "<group>"; };
+		012C42B62C89E91E00C78861 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		012C42B82C89E96000C78861 /* APIUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrl.swift; sourceTree = "<group>"; };
+		012C42BB2C89E9E900C78861 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		012C42C02C8ADF4E00C78861 /* SearchingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingView.swift; sourceTree = "<group>"; };
+		012C42C42C8AEB7B00C78861 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012C42BF2C8AD94E00C78861 /* Kingfisher in Frameworks */,
+				012C42AF2C89E44500C78861 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +53,7 @@
 		012C42912C89D88000C78861 = {
 			isa = PBXGroup;
 			children = (
+				012C42B62C89E91E00C78861 /* .gitignore */,
 				012C429C2C89D88000C78861 /* SwiftUI_CryptoCoin */,
 				012C429B2C89D88000C78861 /* Products */,
 			);
@@ -53,9 +70,13 @@
 		012C429C2C89D88000C78861 /* SwiftUI_CryptoCoin */ = {
 			isa = PBXGroup;
 			children = (
+				012C42BA2C89E9E000C78861 /* Extension */,
+				012C42B02C89E48000C78861 /* Network */,
 				012C429D2C89D88000C78861 /* SwiftUI_CryptoCoinApp.swift */,
 				012C429F2C89D88000C78861 /* ContentView.swift */,
 				012C42AB2C89D8CD00C78861 /* TrendingView.swift */,
+				012C42C02C8ADF4E00C78861 /* SearchingView.swift */,
+				012C42B82C89E96000C78861 /* APIUrl.swift */,
 				012C42A12C89D88100C78861 /* Assets.xcassets */,
 				012C42A32C89D88100C78861 /* Preview Content */,
 			);
@@ -68,6 +89,31 @@
 				012C42A42C89D88100C78861 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		012C42B02C89E48000C78861 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				012C42B12C89E48600C78861 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		012C42B12C89E48600C78861 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012C42B22C89E49600C78861 /* TrendingCoin.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012C42BA2C89E9E000C78861 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				012C42BB2C89E9E900C78861 /* Array+.swift */,
+				012C42C42C8AEB7B00C78861 /* View+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +132,10 @@
 			dependencies = (
 			);
 			name = SwiftUI_CryptoCoin;
+			packageProductDependencies = (
+				012C42AE2C89E44500C78861 /* Alamofire */,
+				012C42BE2C8AD94E00C78861 /* Kingfisher */,
+			);
 			productName = SwiftUI_CryptoCoin;
 			productReference = 012C429A2C89D88000C78861 /* SwiftUI_CryptoCoin.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +164,10 @@
 				Base,
 			);
 			mainGroup = 012C42912C89D88000C78861;
+			packageReferences = (
+				012C42AD2C89E44500C78861 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				012C42BD2C8AD94E00C78861 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 012C429B2C89D88000C78861 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012C42A52C89D88100C78861 /* Preview Assets.xcassets in Resources */,
+				012C42B72C89E91E00C78861 /* .gitignore in Resources */,
 				012C42A22C89D88100C78861 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012C42B92C89E96000C78861 /* APIUrl.swift in Sources */,
+				012C42BC2C89E9E900C78861 /* Array+.swift in Sources */,
 				012C42AC2C89D8CD00C78861 /* TrendingView.swift in Sources */,
+				012C42B32C89E49600C78861 /* TrendingCoin.swift in Sources */,
+				012C42C52C8AEB7B00C78861 /* View+.swift in Sources */,
+				012C42C12C8ADF4E00C78861 /* SearchingView.swift in Sources */,
 				012C42A02C89D88000C78861 /* ContentView.swift in Sources */,
 				012C429E2C89D88000C78861 /* SwiftUI_CryptoCoinApp.swift in Sources */,
 			);
@@ -358,6 +418,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		012C42AD2C89E44500C78861 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		012C42BD2C8AD94E00C78861 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		012C42AE2C89E44500C78861 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 012C42AD2C89E44500C78861 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		012C42BE2C8AD94E00C78861 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 012C42BD2C8AD94E00C78861 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 012C42922C89D88000C78861 /* Project object */;
 }
