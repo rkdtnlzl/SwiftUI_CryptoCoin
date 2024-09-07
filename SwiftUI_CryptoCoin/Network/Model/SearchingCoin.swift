@@ -12,7 +12,6 @@ struct SearchingCoin: Hashable, Identifiable, Decodable {
     let name: String
     let symbol: String
     let thumb: String
-    
 }
 
 struct SearchingCoinsResponse: Decodable {

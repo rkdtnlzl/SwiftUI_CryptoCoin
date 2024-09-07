@@ -12,8 +12,9 @@ import Kingfisher
 struct SearchingView: View {
     
     @State private var searchText = ""
-    
     @State private var searchingCoins: [SearchingCoin] = []
+    
+    @Binding var favoriteCoins: [SearchingCoin]
     
     var body: some View {
         NavigationView {
@@ -41,12 +42,22 @@ struct SearchingView: View {
                         .frame(width: 40, height: 40)
                     Text(coin.name)
                     Spacer()
+                    Button(action: {
+                        toggleFavorite(coin: coin)
+                    }, label: {
+                        Image(systemName: favoriteCoins.contains(where: { $0.id == coin.id }) ? "star.fill" : "star")
+                    })
                 }
             }
         }
         .listStyle(PlainListStyle())
-        .onTapGesture {
-            hideKeyboard()
+    }
+    
+    func toggleFavorite(coin: SearchingCoin) {
+        if let index = favoriteCoins.firstIndex(where: { $0.id == coin.id }) {
+            favoriteCoins.remove(at: index)
+        } else {
+            favoriteCoins.append(coin)
         }
     }
     
@@ -62,7 +73,6 @@ struct SearchingView: View {
             }
         }
     }
-    
 }
 
 struct SearchBar: View {
@@ -93,9 +103,4 @@ struct SearchBar: View {
         }
         .padding(.horizontal)
     }
-}
-
-#Preview {
-    
-    SearchingView()
 }
