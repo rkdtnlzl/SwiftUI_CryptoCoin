@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var text = ""
+    @State private var favoriteCoins: [SearchingCoin] = []
     
     var body: some View {
         TabView {
@@ -17,14 +17,13 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "chart.line.uptrend.xyaxis")
                 }
-            SearchingView()
+            SearchingView(favoriteCoins: $favoriteCoins)
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
-            Text("The Last Tab")
+            FavoriteView(favoriteCoins: favoriteCoins)
                 .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("Third")
+                    Image(systemName: "folder")
                 }
         }
     }
