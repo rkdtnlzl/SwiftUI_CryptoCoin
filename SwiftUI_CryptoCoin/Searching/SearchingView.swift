@@ -33,24 +33,39 @@ struct SearchingView: View {
     
     func listView() -> some View {
         List {
-            ForEach(searchingCoins.filter { coin in
+            let exactMatchCoins = binarySearchCoins(query: searchText)
+            let filteredCoins = searchingCoins.filter { coin in
                 searchText.isEmpty || coin.name.lowercased().contains(searchText.lowercased())
-            }) { coin in
-                HStack {
-                    KFImage(URL(string: "\(coin.thumb)")!)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    Text(coin.name)
-                    Spacer()
-                    Button(action: {
-                        toggleFavorite(coin: coin)
-                    }, label: {
-                        Image(systemName: favoriteCoins.contains(where: { $0.id == coin.id }) ? "star.fill" : "star")
-                    })
+            }
+            
+            if !exactMatchCoins.isEmpty {
+                ForEach(exactMatchCoins) { coin in
+                    coinRowView(coin: coin)
+                }
+            }
+            
+            ForEach(filteredCoins) { coin in
+                if !exactMatchCoins.contains(where: { $0.id == coin.id }) {
+                    coinRowView(coin: coin)
                 }
             }
         }
         .listStyle(PlainListStyle())
+    }
+    
+    func coinRowView(coin: SearchingCoin) -> some View {
+        HStack {
+            KFImage(URL(string: "\(coin.thumb)")!)
+                .resizable()
+                .frame(width: 40, height: 40)
+            Text(coin.name)
+            Spacer()
+            Button(action: {
+                toggleFavorite(coin: coin)
+            }, label: {
+                Image(systemName: favoriteCoins.contains(where: { $0.id == coin.id }) ? "star.fill" : "star")
+            })
+        }
     }
     
     func toggleFavorite(coin: SearchingCoin) {
@@ -67,10 +82,32 @@ struct SearchingView: View {
         AF.request(url).responseDecodable(of: SearchingCoinsResponse.self) { response in
             switch response.result {
             case .success(let data):
-                searchingCoins = data.coins
+                searchingCoins = data.coins.sorted { $0.name < $1.name }
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func binarySearchCoins(query: String) -> [SearchingCoin] {
+        if query.isEmpty { return [] }
+        
+        var left = 0
+        var right = searchingCoins.count - 1
+        
+        while left <= right {
+            let mid = (left + right) / 2
+            let midCoin = searchingCoins[mid]
+            
+            if midCoin.name.lowercased() == query.lowercased() {
+                return [midCoin]
+            } else if midCoin.name.lowercased() < query.lowercased() {
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+        
+        return []
     }
 }
